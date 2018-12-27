@@ -294,21 +294,28 @@ def run_modelling():
 
     Y_dev_predict = forrest.predict(X_dev)
 
-    print(Y_dev_predict)
-    print('================')
-    print(Y_dev)
+    # print(Y_dev_predict)
+    # print('================')
+    # print(Y_dev)
 
     pd.crosstab(pd.Series(Y_dev, name = 'Actual'), pd.Series(Y_dev_predict, name = 'Predict'), margins = True)
 
-    print("Accuracy is {0:.2f}".format(accuracy_score(Y_dev, Y_dev_predict)))
-    print("Precision is {0:.2f}".format(precision_score(Y_dev, Y_dev_predict)))
-    print("Recall is {0:.2f}".format(recall_score(Y_dev, Y_dev_predict)))
-    print("AUC is {0:.2f}".format(roc_auc_score(Y_dev, Y_dev_predict)))
+    # print("Accuracy is {0:.2f}".format(accuracy_score(Y_dev, Y_dev_predict)))
+    # print("Precision is {0:.2f}".format(precision_score(Y_dev, Y_dev_predict)))
+    # print("Recall is {0:.2f}".format(recall_score(Y_dev, Y_dev_predict)))
+    # print("AUC is {0:.2f}".format(roc_auc_score(Y_dev, Y_dev_predict)))
 
     accuracy_forrestg = accuracy_score(Y_dev, Y_dev_predict)
     precision_forrestg = precision_score(Y_dev, Y_dev_predict)
     recall_forrestg = recall_score(Y_dev, Y_dev_predict)
     auc_forrestg = roc_auc_score(Y_dev, Y_dev_predict)
+
+    score_dict = {
+        "Accuracy" : "{0:.2f}".format(accuracy_score(Y_dev, Y_dev_predict)),
+        "Precision" : "{0:.2f}".format(precision_score(Y_dev, Y_dev_predict)),
+        "Recall": "{0:.2f}".format(recall_score(Y_dev, Y_dev_predict)),
+        "AUC": "{0:.2f}".format(roc_auc_score(Y_dev, Y_dev_predict))
+    }
 
     pickle_model_name = 'finalized_model.pkl'
     pickle.dump(forrest, open(pickle_model_name, 'wb'))
@@ -326,13 +333,14 @@ def run_modelling():
     plt.xlabel('Importance')
     plt.title('Most important features - Random Forest (gini) (2 - complex model)')
     plt.savefig('comp_model_features_2.jpg')
-    run_prediction(pickle_model_name, X_dev, Y_dev)
+    # run_prediction(pickle_model_name, X_dev, Y_dev)
+    return score_dict
 
 
 def run_prediction(pickle_model_name, X_dev, Y_dev):
     loaded_model = pickle.load(open(pickle_model_name, 'rb'))
     result = loaded_model.score(X_dev, Y_dev)
-    print("Result : {}".format(result))
+    # print("Result : {}".format(result))
     # print(X_train.columns)
 
 if __name__ == '__main__':
