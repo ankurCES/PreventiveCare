@@ -3,8 +3,10 @@ import json
 from flask import Flask, request
 from run_prediction import start_prediction
 from readmission_prediction import run_modelling
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/predict', methods=['POST'])
 def index():
