@@ -1,15 +1,10 @@
 import requests
 import pandas as pd
 import numpy as np
-from statistics import mode
-import matplotlib.pyplot as plt
 import scipy as sp
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split, cross_val_score
-import statsmodels.api as sm
-import seaborn as sns
 import pickle
-from collections import Counter
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score
 
