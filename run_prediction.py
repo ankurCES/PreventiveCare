@@ -279,12 +279,10 @@ def run_prediction(pickle_model_name, X_in):
     readmission_predict = loaded_model.predict(X_in)
     predict_probability = loaded_model.predict_proba(X_in)
     return {
-        "prediction_value": readmission_predict[0],
-        "probability_0": predict_probability[:,0][0],
-        "probability_1": predict_probability[:,1][0]
+        "prediction_value": str(readmission_predict[0]),
+        "probability_0": str(predict_probability[:,0][0]),
+        "probability_1": str(predict_probability[:,1][0])
     }
-    # result = loaded_model.score(X_dev, Y_dev)
-    # print("Result : {}".format(result))
 
 def start_prediction(data_payload):
     payload_dict = convert_raw_data(data_payload)

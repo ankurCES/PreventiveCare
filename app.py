@@ -9,7 +9,8 @@ app = Flask(__name__)
 def index():
     payload = request.get_json()
     ret_val = start_prediction(payload)
-    return str(ret_val)
+    ret_val = json.dumps(ret_val)
+    return ret_val
 
 if __name__ == '__main__':
     app.run(debug=True)
