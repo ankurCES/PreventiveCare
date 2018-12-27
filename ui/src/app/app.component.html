@@ -1,0 +1,337 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container-fluid">
+  <mat-toolbar class="example-header mat-elevation-z6">Patient Re-admission Prediction Form</mat-toolbar>
+  <div class="example-container">
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="patientForm">
+          <div class="row">
+            <div class="col-12 col-md-6 pl-3">
+              <mat-label>Age</mat-label>
+              <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100" formControlName="age"></mat-slider>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select placeholder="Gender" formControlName="gender">
+                  <mat-option value="1">Male</mat-option>
+                  <mat-option value="0">Female</mat-option>
+                  <mat-option value="0">Others</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Ethnicity</mat-label>
+                <mat-select placeholder="Ethnicity" formControlName="race">
+                  <mat-option value="AfricanAmerican">AfricanAmerican</mat-option>
+                  <mat-option value="Asian">Asian</mat-option>
+                  <mat-option value="Caucasian">Caucasian</mat-option>
+                  <mat-option value="Hispanic">Hispanic</mat-option>
+                  <mat-option value="Other">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Time In Hospital</mat-label>
+                <input formControlName="time_in_hospital" matInput placeholder="Time In Hospital" type="number">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Discharge Disposition</mat-label>
+                <mat-select placeholder="Discharge Disposition" formControlName="discharge_disposition_id">
+                  <mat-option value="1">Discharged to home</mat-option>
+                  <mat-option value="2">Discharged/transferred to another short term hospital</mat-option>
+                  <mat-option value="3">Discharged/transferred to SNF</mat-option>
+                  <mat-option value="4">Discharged/transferred to ICF</mat-option>
+                  <mat-option value="5">Discharged/transferred to another type of inpatient care institution</mat-option>
+                  <mat-option value="6">Discharged/transferred to home with home health service</mat-option>
+                  <mat-option value="7">Left AMA</mat-option>
+                  <mat-option value="8">Discharged/transferred to home under care of Home IV provider</mat-option>
+                  <mat-option value="9">Admitted as an inpatient to this hospital</mat-option>
+                  <mat-option value="10"> Neonate discharged to another hospital for neonatal aftercare</mat-option>
+                  <mat-option value="11"> Expired</mat-option>
+                  <mat-option value="12"> Still patient or expected to return for outpatient services</mat-option>
+                  <mat-option value="13"> Hospice / home</mat-option>
+                  <mat-option value="14"> Hospice / medical facility</mat-option>
+                  <mat-option value="15"> Discharged/transferred within this institution to Medicare approved swing bed</mat-option>
+                  <mat-option value="16"> Discharged/transferred/referred another institution for outpatient services</mat-option>
+                  <mat-option value="17"> Discharged/transferred/referred to this institution for outpatient services</mat-option>
+                  <mat-option value="18"> NULL</mat-option>
+                  <mat-option value="19"> Expired at home. Medicaid only, hospice.</mat-option>
+                  <mat-option value="20"> Expired in a medical facility. Medicaid only, hospice.</mat-option>
+                  <mat-option value="21"> Expired, place unknown. Medicaid only, hospice.</mat-option>
+                  <mat-option value="22"> Discharged/transferred to another rehab fac including rehab units of a
+                    hospital .</mat-option>
+                  <mat-option value="23"> Discharged/transferred to a long term care hospital.</mat-option>
+                  <mat-option value="24"> Discharged/transferred to a nursing facility certified under Medicaid but not
+                    certified
+                    under Medicare.</mat-option>
+                  <mat-option value="25"> Not Mapped</mat-option>
+                  <mat-option value="26"> Unknown/Invalid</mat-option>
+                  <mat-option value="27"> Discharged/transferred to a federal health care facility.</mat-option>
+                  <mat-option value="28"> Discharged/transferred/referred to a psychiatric hospital of psychiatric
+                    distinct
+                    part
+                    unit of a hospital</mat-option>
+                  <mat-option value="29"> Discharged/transferred to a Critical Access Hospital (CAH).</mat-option>
+                  <mat-option value="30"> Discharged/transferred to another Type of Health Care Institution not Defined
+                    Elsewhere</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Admission Source</mat-label>
+                <mat-select placeholder="Admission Source" formControlName="admission_source_id">
+                  <mat-option value="1"> Physician Referral</mat-option>
+                  <mat-option value="2"> Clinic Referral</mat-option>
+                  <mat-option value="3">HMO Referral</mat-option>
+                  <mat-option value="4">Transfer from a hospital</mat-option>
+                  <mat-option value="5"> Transfer from a Skilled Nursing Facility (SNF)</mat-option>
+                  <mat-option value="6"> Transfer from another health care facility</mat-option>
+                  <mat-option value="7"> Emergency Room</mat-option>
+                  <mat-option value="8"> Court/Law Enforcement</mat-option>
+                  <mat-option value="9"> Not Available</mat-option>
+                  <mat-option value="10"> Transfer from critial access hospital</mat-option>
+                  <mat-option value="11"> Normal Delivery</mat-option>
+                  <mat-option value="12"> Premature Delivery</mat-option>
+                  <mat-option value="13"> Sick Baby</mat-option>
+                  <mat-option value="14"> Extramural Birth</mat-option>
+                  <mat-option value="15"> Not Available</mat-option>
+                  <mat-option value="17"> NULL</mat-option>
+                  <mat-option value="18"> Transfer From Another Home Health Agency</mat-option>
+                  <mat-option value="19"> Readmission to Same Home Health Agency</mat-option>
+                  <mat-option value="20"> Not Mapped</mat-option>
+                  <mat-option value="21"> Unknown/Invalid</mat-option>
+                  <mat-option value="22"> Transfer from hospital inpt/same fac reslt in a sep claim</mat-option>
+                  <mat-option value="23"> Born inside this hospital</mat-option>
+                  <mat-option value="24"> Born outside this hospital</mat-option>
+                  <mat-option value="25"> Transfer from Ambulatory Surgery Center</mat-option>
+                  <mat-option value="26"> Transfer from Hospice</mat-option>
+
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Admission Type</mat-label>
+                <mat-select placeholder="Admission Type" formControlName="admission_type_id">
+                  <mat-option value="1">Emergency</mat-option>
+                  <mat-option value="2">Urgent</mat-option>
+                  <mat-option value="3">Elective</mat-option>
+                  <mat-option value="4">Newborn</mat-option>
+                  <mat-option value="5">Not Available</mat-option>
+                  <mat-option value="6">NULL</mat-option>
+                  <mat-option value="7">Trauma Center</mat-option>
+                  <mat-option value="8">Not Mapped</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Number of diagnoses</mat-label>
+                <input matInput placeholder="Number of diagnoses" type="number" formControlName="number_diagnoses">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Number of Inpatient Encounters</mat-label>
+                <input matInput placeholder="Number of Inpatient Encounters" type="number" formControlName="number_inpatient">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Number of Outpatient Encounters</mat-label>
+                <input matInput placeholder="Number of Outpatient Encounters" type="number" formControlName="number_outpatient">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Number of emergency Encounters</mat-label>
+                <input matInput placeholder="Number of emergency Encounters" type="number" formControlName="number_emergency">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Number of medications (currently on)</mat-label>
+                <input matInput placeholder="Number of medications (currently on)" type="number" formControlName="num_medications">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Number of procedures undergone</mat-label>
+                <input matInput placeholder="Number of procedures undergone" type="number" formControlName="num_procedures">
+              </mat-form-field>
+
+            </div>
+            <div class="col">
+
+              <mat-form-field appearance="fill">
+                <mat-label>Oral Glucose Tolerance Test (OGTT)result</mat-label>
+                <input matInput placeholder="Oral Glucose Tolerance Test (OGTT)result" type="number" formControlName="max_glu_serum">
+                <span matSuffix>(mg/dL)</span>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>A1Cresult</mat-label>
+                <input formControlName="A1Cresult" matInput placeholder="A1Cresult" type="number">
+                <span matSuffix>%</span>
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Number lab procedures</mat-label>
+                <input formControlName="num_lab_procedures" matInput placeholder="num_lab_procedures" type="number">
+                <span matSuffix>%</span>
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="row px-3">
+            <div class="col-12">
+              <h2 class="mat-subheading-2">Medications</h2>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="metformin">metformin</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="repaglinide">repaglinide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="nateglinide">nateglinide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="chlorpropamide">chlorpropamide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="glimepiride">glimepiride</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="glipizide">glipizide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="glyburide">glyburide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="pioglitazone">pioglitazone</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="rosiglitazone">rosiglitazone</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="acarbose">acarbose</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="tolazamide">tolazamide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="insulin">insulin</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="glyburide_metformin">glyburide-metformin</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="glimepiride_pioglitazone">glimepiride-pioglitazone</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="glipizide_metformin">glipizide-metformin</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="metformin_pioglitazone">metformin-pioglitazone</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="metformin_rosiglitazone">metformin-rosiglitazone</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="miglitol">miglitol</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="tolbutamide">tolbutamide</mat-checkbox>
+            </div>
+            <div class="col-6 col-md-3">
+              <mat-checkbox formControlName="troglitazone">troglitazone</mat-checkbox>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="Diagnosis 1 - ICD 10 Code" [matAutocomplete]="auto" formControlName='diag_1'>
+                <!-- <mat-label>Diagnosis 1</mat-label>
+                <mat-select placeholder="Diagnosis 1" formControlName="diag_1">
+                  <mat-option value="option">Option</mat-option>
+                </mat-select> -->
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="Diagnosis 2 - ICD 10 Code" [matAutocomplete]="auto" formControlName='diag_2'>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="Diagnosis 3 - ICD 10 Code" [matAutocomplete]="auto" formControlName='diag_3'>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <div class="col-4 text-center align-middle">
+        <circle-progress
+          [percent]="score"
+          [radius]="100"
+          [subtitle] = "'Chances of readmission'"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="300"
+        ></circle-progress>
+      </div>
+    </div>
+
+  </div>
+</div>

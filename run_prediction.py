@@ -224,7 +224,7 @@ def convert_raw_data(data_dict):
 
 
 
-    med_list = ['metformin', 'repaglinide', 'nateglinide', 'chlorpropamide', 'glimepiride', 'acetohexamide', 'glipizide', 'glyburide', 'tolbutamide', 'pioglitazone', 'rosiglitazone', 'acarbose', 'miglitol', 'troglitazone', 'tolazamide', 'insulin', 'glyburide-metformin', 'glipizide-metformin', 'glimepiride-pioglitazone', 'metformin-rosiglitazone', 'metformin-pioglitazone']
+    med_list = ['metformin', 'repaglinide', 'nateglinide', 'chlorpropamide', 'glimepiride', 'acetohexamide', 'glipizide', 'glyburide', 'tolbutamide', 'pioglitazone', 'rosiglitazone', 'acarbose', 'miglitol', 'troglitazone', 'tolazamide', 'insulin', 'glyburide_metformin', 'glipizide_metformin', 'glimepiride_pioglitazone', 'metformin_rosiglitazone', 'metformin_pioglitazone']
 
     race_keys = ['race_AfricanAmerican', 'race_Asian', 'race_Caucasian', 'race_Hispanic', 'race_Other']
 
@@ -240,7 +240,12 @@ def convert_raw_data(data_dict):
         df_pred_dict['gender_1'] = 0
 
     for med in med_list:
-        df_pred_dict[med] = data_dict[med]
+        if data_dict[med] == 'False':
+            df_pred_dict[med] = 0
+        elif data_dict[med] == 'True':
+            df_pred_dict[med] = 1
+        else:
+            df_pred_dict[med] = data_dict[med]
 
     df_pred_dict['number_outpatient_log1p'] = np.log1p(data_dict['number_outpatient'])
     df_pred_dict['number_emergency_log1p'] = np.log1p(data_dict['number_emergency'])
@@ -287,11 +292,13 @@ def run_prediction(pickle_model_name, X_in):
 def start_prediction(data_payload):
     payload_dict = convert_raw_data(data_payload)
 
+    med_list = ['metformin', 'repaglinide', 'nateglinide', 'chlorpropamide', 'glimepiride', 'acetohexamide', 'glipizide', 'glyburide', 'tolbutamide', 'pioglitazone', 'rosiglitazone', 'acarbose', 'miglitol', 'troglitazone', 'tolazamide', 'insulin', 'glyburide_metformin', 'glipizide_metformin', 'glimepiride_pioglitazone', 'metformin_rosiglitazone', 'metformin_pioglitazone']
+
     feature_list = ['age', 'time_in_hospital', 'num_procedures', 'num_medications', 'number_outpatient_log1p',
                      'number_emergency_log1p', 'number_inpatient_log1p', 'number_diagnoses', 'metformin',
                      'repaglinide', 'nateglinide', 'chlorpropamide', 'glimepiride', 'glipizide',
                      'glyburide', 'pioglitazone', 'rosiglitazone', 'acarbose',
-                     'tolazamide', 'insulin', 'glyburide-metformin',
+                     'tolazamide', 'insulin', 'glyburide_metformin',
                      'race_AfricanAmerican', 'race_Asian', 'race_Caucasian',
                      'race_Hispanic', 'race_Other', 'gender_1',
                      'admission_type_id_3', 'admission_type_id_5',

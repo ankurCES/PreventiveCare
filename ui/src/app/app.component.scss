@@ -1,0 +1,17 @@
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0A0945;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.example-container {
+  margin-top: 80px;
+}
+
+.mat-form-field, .mat-slider{
+    width: 100%;
+}

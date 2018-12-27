@@ -1,0 +1,43 @@
+export class VitalSign {
+    gender: number;
+    age: number;
+    race: string;
+    time_in_hospital: string;
+    discharge_disposition_id: number;
+    admission_source_id: number;
+    admission_type_id: number;
+    number_diagnoses: number;
+    number_emergency: number;
+    number_outpatient: number;
+    number_inpatient: number;
+    num_medications: number;
+    num_procedures: number;
+    num_lab_procedures: number;
+    max_glu_serum: number;
+    A1Cresult: number;
+    diag_1: string;
+    diag_2: string;
+    diag_3: string;
+    metformin: number;
+    repaglinide: number;
+    nateglinide: number;
+    chlorpropamide: number;
+    glimepiride: number;
+    acetohexamide: number;
+    glipizide: number;
+    glyburide: number;
+    tolbutamide: number;
+    pioglitazone: number;
+    rosiglitazone: number;
+    acarbose: number;
+    miglitol: number;
+    troglitazone: number;
+    tolazamide: number;
+    insulin: number;
+    glyburide_metformin: number;
+    glipizide_metformin: number;
+    glimepiride_pioglitazone: number;
+    metformin_rosiglitazone: number;
+    metformin_pioglitazone: number;
+    constructor() { }
+}
