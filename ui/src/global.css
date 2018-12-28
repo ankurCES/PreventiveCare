@@ -1,0 +1,104 @@
+mwl-gauge {
+      flex: 1;
+      display: block;
+      padding: 10px;
+      margin: 7px;
+      border-radius: 3px;
+    }
+    mwl-gauge > .gauge > .dial {
+      stroke: #334455;
+      stroke-width: 2;
+      fill: rgba(0,0,0,0);
+    }
+    mwl-gauge > .gauge > .value {
+      stroke: #f43260;
+      stroke-width: 2;
+      fill: rgba(0,0,0,0);
+    }
+    mwl-gauge > .gauge > .value-text {
+      fill: #f43260;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 0.8em;
+    }
+    /* ------- Alternate Style ------- */
+    mwl-gauge.two {
+    }
+    mwl-gauge.two > .gauge > .dial {
+      stroke: #334455;
+      stroke-width: 10;
+    }
+    mwl-gauge.two > .gauge > .value {
+      stroke: orange;
+      stroke-dasharray: none;
+      stroke-width: 13;
+    }
+    mwl-gauge.two > .gauge > .value-text {
+      fill: orange;
+    }
+    /* ------- Alternate Style ------- */
+    mwl-gauge.three {
+    }
+    mwl-gauge.three > .gauge > .dial {
+      stroke: #334455;
+      stroke-width: 2;
+    }
+    mwl-gauge.three > .gauge > .value {
+      stroke: #C9DE3C;
+      stroke-width: 5;
+    }
+    mwl-gauge.three > .gauge > .value-text {
+      fill: #C9DE3C;
+    }
+    /* ----- Alternate Style ----- */
+    mwl-gauge.four > .gauge > .dial {
+      stroke: #334455;
+      stroke-width: 5;
+    }
+    mwl-gauge.four > .gauge > .value {
+      stroke: #BE80FF;
+      stroke-dasharray: none;
+      stroke-width: 5;
+    }
+    mwl-gauge.four > .gauge > .value-text {
+      fill: #BE80FF;
+    }
+    /* ----- Alternate Style ----- */
+    mwl-gauge.five > .gauge > .dial {
+      stroke: #334455;
+      stroke-width: 5;
+    }
+    mwl-gauge.five > .gauge > .value {
+      stroke: #F8774B;
+      stroke-dasharray: 25 1;
+      stroke-width: 5;
+    }
+    mwl-gauge.five > .gauge > .value-text {
+      fill: #F8774B;
+      font-size: 0.7em;
+    }
+    /* ----- Alternate Style ----- */
+    mwl-gauge.six > .gauge > .dial {
+      stroke: #334455;
+      fill: #334455;
+      stroke-width: 20;
+    }
+    mwl-gauge.six > .gauge > .value {
+      stroke: #FF6DAF;
+      stroke-width: 20;
+    }
+    mwl-gauge.six > .gauge > .value-text {
+      fill: #FF6DAF;
+      font-size: 0.7em;
+    }
+    mwl-gauge.seven > .gauge > .dial {
+      stroke: transparent;
+      stroke-width: 5;
+      transform: scale(0.9,0.9) translate3d(5.5px, 5.5px, 0);
+      fill: rgba(148, 112, 57, 0.42);
+    }
+    mwl-gauge.seven > .gauge > .value {
+      stroke: #F8774B;
+      stroke-dasharray: none;
+      stroke-width: 5;
+    }

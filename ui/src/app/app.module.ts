@@ -12,6 +12,9 @@ import { MaterialModule } from './material/material.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { GaugeModule } from 'angular-gauge';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 keyboardEventKeyPolyfill();
 
@@ -28,6 +31,9 @@ keyboardEventKeyPolyfill();
     MaterialModule,
     HttpClientModule,
     TextInputAutocompleteModule,
+    NgxChartsModule,
+    GaugeModule.forRoot(),
+    NgxGaugeModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,

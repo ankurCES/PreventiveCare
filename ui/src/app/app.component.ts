@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { VitalSign } from './model/vital-sign';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NgOnChangesFeature } from '@angular/core/src/render3';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 @Component({
@@ -15,7 +16,22 @@ export class AppComponent implements OnInit {
   init_data: any;
   patientForm: FormGroup;
   filteredUsers: any;
-  score: number;
+  score: number = 0;
+  view: any[] = [600, 400];
+  gaugeType: any = "arch";
+  gaugeLabel: any = "Readmission Probability";
+  gaugeAppendText: any = "%";
+  gaugeForm: number = 15
+  thresholdConfig: any = {
+      '0': {color: '#b9dd2a'},
+      '35': {color: '#ddd22c'},
+      '65': {color: '#dd992b'},
+      '70': {color: '#dd4b2a'}
+  };
+
+  colorScheme = {
+    domain: ['#f43260', '#97f433']
+  };
 
   formatLabel(value: number | null) {
     if (!value) {
@@ -41,8 +57,8 @@ export class AppComponent implements OnInit {
       "number_diagnoses": "17",
       "race": "AfricanAmerican",
       "gender": "1",
-      "max_glu_serum": "2.3",
-      "A1Cresult": "203",
+      "max_glu_serum": "280",
+      "A1Cresult": "4.5",
       "diag_1": "E10.65",
       "diag_2": "E10.65",
       "diag_3": "J98.5",
@@ -72,6 +88,10 @@ export class AppComponent implements OnInit {
     this.patientForm = formBuilder.group(this.init_data);
   }
 
+  onSelect(event) {
+    console.log(event);
+  }
+
   ngOnInit(): void {
 
     this.apiService.getPrediction(this.init_data).subscribe((res) => {
@@ -79,7 +99,17 @@ export class AppComponent implements OnInit {
       console.log('Created a prediction');
       console.log('res', res);
       this.data = res;
-      this.score = +this.data['probability_1'] * 100
+      this.score = parseFloat(this.data['probability_1']).toFixed(4) * 100;
+      // this.score = [
+      //   {
+      //     "name": "Readmission",
+      //     "value": +this.data['probability_1'] * 100
+      //   },
+      //   {
+      //     "name": "No-Readmission",
+      //     "value": +this.data['probability_0'] * 100
+      //   }
+      // ];
     });
 
     this.patientForm.valueChanges.subscribe((val: VitalSign) => {
@@ -89,7 +119,17 @@ export class AppComponent implements OnInit {
         console.log('Created a prediction');
         console.log('res', res);
         this.data = res;
-        this.score = +this.data['probability_1'] * 100
+        this.score = parseFloat(this.data['probability_1']).toFixed(4) * 100;
+        // this.score = [
+        //   {
+        //     "name": "Readmission",
+        //     "value": +this.data['probability_1'] * 100
+        //   },
+        //   {
+        //     "name": "No-Readmission",
+        //     "value": +this.data['probability_0'] * 100
+        //   }
+        // ];
       });
     });
   }

@@ -4,7 +4,7 @@
   <mat-toolbar class="example-header mat-elevation-z6">Patient Re-admission Prediction Form</mat-toolbar>
   <div class="example-container">
     <div class="row">
-      <div class="col">
+      <div class="col-sm-8">
         <form [formGroup]="patientForm">
           <div class="row">
             <div class="col-12 col-md-6 pl-3">
@@ -318,8 +318,8 @@
       </div>
 
 
-      <div class="col-4 text-center align-middle">
-        <circle-progress
+      <div class="col-sm-4 text-center align-middle">
+        <!-- <circle-progress
           [percent]="score"
           [radius]="100"
           [subtitle] = "'Chances of readmission'"
@@ -329,7 +329,34 @@
           [innerStrokeColor]="'#C7E596'"
           [animation]="true"
           [animationDuration]="300"
-        ></circle-progress>
+        ></circle-progress> -->
+        <!-- <ngx-charts-advanced-pie-chart
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="score"
+          [gradient]="gradient"
+          (select)="onSelect($event)">
+        </ngx-charts-advanced-pie-chart> -->
+        <!-- <mwl-gauge
+          class="seven"
+          [max]="100"
+          [dialStartAngle]="-90"
+          [dialEndAngle]="-90.001"
+          [showValue]="true"
+          [value]="score"
+          [animated]="true"
+          [animationDuration]="1">
+        </mwl-gauge> -->
+        <ngx-gauge [type]="gaugeType"
+          [value]="score"
+          [label]="gaugeLabel"
+          [thick]="gaugeForm"
+          size="400"
+          animate="true"
+          [thresholds]="thresholdConfig"
+          [append]="gaugeAppendText">
+        </ngx-gauge>
+        <!-- <mat-label style="font-size: 20px">Chances of Readmission</mat-label> -->
       </div>
     </div>
 
