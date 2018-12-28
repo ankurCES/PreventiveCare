@@ -16,12 +16,12 @@ export class AppComponent implements OnInit {
   init_data: any;
   patientForm: FormGroup;
   filteredUsers: any;
-  score: number = 0;
+  score: any = 0;
   view: any[] = [600, 400];
   gaugeType: any = "arch";
   gaugeLabel: any = "Readmission Probability";
   gaugeAppendText: any = "%";
-  gaugeForm: number = 15
+  gaugeForm: number = 15;
   thresholdConfig: any = {
       '0': {color: '#b9dd2a'},
       '35': {color: '#ddd22c'},
@@ -99,7 +99,7 @@ export class AppComponent implements OnInit {
       console.log('Created a prediction');
       console.log('res', res);
       this.data = res;
-      this.score = parseFloat(this.data['probability_1']).toFixed(4) * 100;
+      this.score = (+this.data['probability_1'] * 100).toFixed(2);
       // this.score = [
       //   {
       //     "name": "Readmission",
@@ -119,7 +119,7 @@ export class AppComponent implements OnInit {
         console.log('Created a prediction');
         console.log('res', res);
         this.data = res;
-        this.score = parseFloat(this.data['probability_1']).toFixed(4) * 100;
+        this.score = (+this.data['probability_1'] * 100).toFixed(2);
         // this.score = [
         //   {
         //     "name": "Readmission",
