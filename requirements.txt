@@ -22,7 +22,7 @@ httplib2==0.11.0
 jmespath==0.9.3
 joblib==0.13.0
 jsonschema==2.6.0
-numpy==1.15.1
+numpy==1.22.0
 numpydoc==0.7.0
 pandas==0.22.0
 pandocfilters==1.4.2
