@@ -20,7 +20,7 @@ h5py==2.7.1
 html5lib==0.9999999
 httplib2==0.11.0
 jmespath==0.9.3
-joblib==0.13.0
+joblib==1.2.0
 jsonschema==2.6.0
 numpy==1.15.1
 numpydoc==0.7.0
